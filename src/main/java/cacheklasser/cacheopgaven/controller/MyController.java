@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MyController
 {
-    User user = new User(userId);
     Cache userCache = new Cache();
-    int i = 0;
-
 
     @GetMapping("/")
     public String test()
@@ -24,21 +21,23 @@ public class MyController
 
     @GetMapping("/get-user-data")
     @ResponseBody
-    public String getUserData(@RequestParam("id") int key)
+    public String getUserData(@RequestParam("id") int key) throws InterruptedException
     {
-
+        User user = new User(key);
         boolean keyExistsInMap = userCache.has(key);
         if(keyExistsInMap)
         {
             return userCache.get(key);
         }
 
-        i++;
-        userCache.set(key,user.getDataSlow);
-
+        userCache.set(key, user.getDataSlow());
         return userCache.get(key);
-
     }
+
+
+}
+
+
     /*
     // Det som kommer efter spørgsmålstegnet er en RequestParameter
     // localhost:8080/getUser?name=vibe
@@ -46,7 +45,4 @@ public class MyController
     public User getUserFromName(@RequestParam("name") String navn){
         System.out.println(navn);
     }
-
      */
-
-}
