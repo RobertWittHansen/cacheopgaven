@@ -18,8 +18,6 @@ public class User
     public void setUserId(int userId)
     { this.userId = userId;}
 
-
-
     public String getDataSlow() throws InterruptedException {
         TimeUnit.SECONDS.sleep(10);
         String generatedString = RandomStringUtils.randomAlphabetic(1000);
@@ -27,8 +25,4 @@ public class User
         return generatedString;
 
     }
-
-
-
-
 }

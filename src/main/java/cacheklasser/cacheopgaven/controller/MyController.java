@@ -33,16 +33,13 @@ public class MyController
         userCache.set(key, user.getDataSlow());
         return userCache.get(key);
     }
-
-
 }
 
-
-    /*
-    // Det som kommer efter spørgsmålstegnet er en RequestParameter
-    // localhost:8080/getUser?name=vibe
-    @GetMapping("/getUser")
-    public User getUserFromName(@RequestParam("name") String navn){
-        System.out.println(navn);
-    }
-     */
+/*
+// Det som kommer efter spørgsmålstegnet er en RequestParameter
+// localhost:8080/getUser?name=vibe
+@GetMapping("/getUser")
+public User getUserFromName(@RequestParam("name") String navn){
+    System.out.println(navn);
+}
+*/
